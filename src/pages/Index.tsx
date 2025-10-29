@@ -14,21 +14,21 @@ const algeriaRegions = [
 ];
 
 const cultures = [
-  { title: 'موسيقى الراي', description: 'نوع شعبي نشأ في وهران، مزيج من الألحان العربية والبربرية والإسبانية', icon: 'Music' },
-  { title: 'الثقافة القبائلية', description: 'ثقافة أمازيغية بتقاليد فريدة في صناعة الفخار والنسيج', icon: 'Palette' },
-  { title: 'الرقصات التقليدية', description: 'من العربي البدوي إلى القبائلي أحواش', icon: 'Sparkles' },
+  { title: 'موسيقى الراي', description: 'نوع شعبي نشأ في وهران، مزيج من الألحان العربية والبربرية والإسبانية', icon: 'Music', examples: 'الشاب خالد، الشاب حسني، الشاب بلال', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/7b8641d6-b395-490c-b0db-07d1a6a30de3.jpg' },
+  { title: 'الثقافة القبائلية', description: 'ثقافة أمازيغية بتقاليد فريدة في صناعة الفخار والنسيج', icon: 'Palette', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/db8c3ac1-be59-498e-9b13-7fe27a3261c3.jpg' },
+  { title: 'الرقصات التقليدية', description: 'من العربي البدوي إلى القبائلي أحواش', icon: 'Sparkles', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/0f49c6b9-139c-4d58-82b4-47f0f777144d.jpg' },
 ];
 
 const clothing = [
-  { title: 'القراقو', description: 'السترة النسائية التقليدية بتطريز غني بخيوط ذهبية', icon: 'Shirt', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/35b7984e-e902-4a7b-a766-a74d1191f0cf.jpg' },
-  { title: 'البرنوس', description: 'عباءة صوفية بقلنسوة، حماية من رياح الصحراء', icon: 'Shield', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/35b7984e-e902-4a7b-a766-a74d1191f0cf.jpg' },
-  { title: 'الحايك', description: 'غطاء أبيض، أناقة في لف القماش', icon: 'Sparkle', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/35b7984e-e902-4a7b-a766-a74d1191f0cf.jpg' },
+  { title: 'الكاراكو', description: 'السترة النسائية التقليدية بتطريز غني بخيوط ذهبية', icon: 'Shirt', image: 'https://cdn.poehali.dev/files/b0a8a14c-4e78-4e0a-9a63-ce9c701dc73c.jpg' },
+  { title: 'القفطان', description: 'لباس فاخر بتطريز أنيق وألوان زاهية', icon: 'Shield', image: 'https://cdn.poehali.dev/files/b0a8a14c-4e78-4e0a-9a63-ce9c701dc73c.jpg' },
+  { title: 'القبائلية', description: 'الفستان التقليدي بألوان وزخارف أمازيغية مميزة', icon: 'Sparkle', image: 'https://cdn.poehali.dev/files/a679fe65-3593-4bd0-a4f9-fe3f26e42bc2.jpg' },
 ];
 
 const dishes = [
-  { title: 'الكسكس', description: 'الطبق الوطني بالخضروات واللحم، يقدم في المناسبات العائلية', icon: 'Utensils', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/f20324c1-5ced-4171-acc1-481f9535f171.jpg' },
-  { title: 'الطاجين', description: 'طبق مطهو ببطء في إناء فخاري بنكهات غنية', icon: 'CookingPot', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/f20324c1-5ced-4171-acc1-481f9535f171.jpg' },
-  { title: 'المحجوبة', description: 'كريب جزائري محشو بالطماطم والبصل', icon: 'Pizza', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/f20324c1-5ced-4171-acc1-481f9535f171.jpg' },
+  { title: 'الكسكس', description: 'الطبق الوطني بالخضروات واللحم، يقدم في المناسبات العائلية', icon: 'Utensils', image: 'https://cdn.poehali.dev/files/6aedcdb6-8de1-468f-bef7-7fd48395fdbc.jpg' },
+  { title: 'البغرير', description: 'فطائر إسفنجية محلاة بالعسل، مثالية للفطور', icon: 'CookingPot', image: 'https://cdn.poehali.dev/files/a3c83f3f-0d9a-48bf-a3ce-835146408051.jpg' },
+  { title: 'الحلوى التقليدية', description: 'مجموعة من الحلويات اللذيذة بالعسل والفستق', icon: 'Cookie', image: 'https://cdn.poehali.dev/files/307fcd31-4934-4444-b4b5-087c3490b0f7.jpg' },
 ];
 
 const scientists = [
@@ -90,7 +90,7 @@ const Index = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/ed144c47-418b-484d-8f89-44b9238dce1c.jpg')`,
+            backgroundImage: `url('https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/c35b1576-dc17-4816-92d1-75081807e5b9.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -100,7 +100,7 @@ const Index = () => {
         <div className="relative z-10 text-center px-4 animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">الجزائر</h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-            اكتشف الثقافة الغنية والتاريخ العريق وتقاليد بلد الألف لون
+            تعرف معنا على بلد المليون ونصف المليون شهيد
           </p>
           <Button size="lg" onClick={() => scrollToSection('map')} className="bg-primary hover:bg-primary/90">
             استكشف <Icon name="ArrowDown" className="mr-2" size={20} />
@@ -170,7 +170,15 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {cultures.map((culture, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow duration-300 animate-fade-in">
+              <Card key={index} className="hover:shadow-xl transition-shadow duration-300 animate-fade-in overflow-hidden">
+                {culture.image && (
+                  <div
+                    className="h-48 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('${culture.image}')`,
+                    }}
+                  />
+                )}
                 <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Icon name={culture.icon} size={32} className="text-primary" />
@@ -179,6 +187,11 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{culture.description}</p>
+                  {culture.examples && (
+                    <p className="text-sm text-accent mt-3 font-semibold">
+                      أمثلة: {culture.examples}
+                    </p>
+                  )}
                 </CardContent>
               </Card>
             ))}
