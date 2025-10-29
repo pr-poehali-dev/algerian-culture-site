@@ -13,15 +13,22 @@ const algeriaRegions = [
   { id: 6, name: 'جميلة', description: 'الآثار الرومانية القديمة', specialty: 'المجمع الأثري' },
 ];
 
+const raiVideos = [
+  { title: 'الشاب خالد - عايشة', url: 'https://www.youtube.com/embed/RvK-Y0KkR7U' },
+  { title: 'الشاب مامي - دويتو', url: 'https://www.youtube.com/embed/Fpu5a0Bl8eY' },
+  { title: 'الشاب حسني - زهر الوردية', url: 'https://www.youtube.com/embed/fLqvirM4XQk' },
+  { title: 'الشاب بلال - الفراق', url: 'https://www.youtube.com/embed/Yw5U_L6fDX0' },
+];
+
 const cultures = [
-  { title: 'موسيقى الراي', description: 'نوع شعبي نشأ في وهران، مزيج من الألحان العربية والبربرية والإسبانية', icon: 'Music', examples: 'الشاب خالد، الشاب حسني، الشاب بلال', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/7b8641d6-b395-490c-b0db-07d1a6a30de3.jpg' },
-  { title: 'الثقافة القبائلية', description: 'ثقافة أمازيغية بتقاليد فريدة في صناعة الفخار والنسيج', icon: 'Palette', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/db8c3ac1-be59-498e-9b13-7fe27a3261c3.jpg' },
-  { title: 'الرقصات التقليدية', description: 'من العربي البدوي إلى القبائلي أحواش', icon: 'Sparkles', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/0f49c6b9-139c-4d58-82b4-47f0f777144d.jpg' },
+  { id: 'rai', title: 'موسيقى الراي', description: 'نوع شعبي نشأ في وهران، مزيج من الألحان العربية والبربرية والإسبانية', icon: 'Music', examples: 'الشاب خالد، الشاب حسني، الشاب بلال', image: 'https://cdn.poehali.dev/files/bc619b42-5396-4fba-9c0f-cec6191b9320.jpg' },
+  { id: 'kabyle', title: 'الثقافة القبائلية', description: 'ثقافة أمازيغية بتقاليد فريدة في صناعة الفخار والنسيج', icon: 'Palette', image: 'https://cdn.poehali.dev/projects/8dbe3904-e103-4ace-bd77-4ba8b00d17ae/files/db8c3ac1-be59-498e-9b13-7fe27a3261c3.jpg' },
+  { id: 'dance', title: 'الرقصات التقليدية', description: 'من العربي البدوي إلى القبائلي أحواش', icon: 'Sparkles', image: 'https://cdn.poehali.dev/files/2ab5c466-982f-4046-8e92-cfc0dd370010.jpg' },
 ];
 
 const clothing = [
   { title: 'الكاراكو', description: 'السترة النسائية التقليدية بتطريز غني بخيوط ذهبية', icon: 'Shirt', image: 'https://cdn.poehali.dev/files/b0a8a14c-4e78-4e0a-9a63-ce9c701dc73c.jpg' },
-  { title: 'القفطان', description: 'لباس فاخر بتطريز أنيق وألوان زاهية', icon: 'Shield', image: 'https://cdn.poehali.dev/files/b0a8a14c-4e78-4e0a-9a63-ce9c701dc73c.jpg' },
+  { title: 'القفطان', description: 'لباس فاخر بتطريز أنيق وألوان زاهية', icon: 'Shield', image: 'https://cdn.poehali.dev/files/f84be8ac-0a61-452f-8cd3-359cf7ccb183.jpg' },
   { title: 'القبائلية', description: 'الفستان التقليدي بألوان وزخارف أمازيغية مميزة', icon: 'Sparkle', image: 'https://cdn.poehali.dev/files/a679fe65-3593-4bd0-a4f9-fe3f26e42bc2.jpg' },
 ];
 
@@ -49,6 +56,7 @@ const history = [
 const Index = () => {
   const [selectedRegion, setSelectedRegion] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState('home');
+  const [selectedCulture, setSelectedCulture] = useState<string | null>(null);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -168,9 +176,15 @@ const Index = () => {
             <h2 className="text-4xl font-bold mb-4">الثقافة</h2>
             <p className="text-muted-foreground text-lg">التراث الثقافي المتعدد الأوجه للجزائر</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
             {cultures.map((culture, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow duration-300 animate-fade-in overflow-hidden">
+              <Card 
+                key={index} 
+                className={`hover:shadow-xl transition-shadow duration-300 animate-fade-in overflow-hidden cursor-pointer ${
+                  selectedCulture === culture.id ? 'ring-2 ring-primary' : ''
+                }`}
+                onClick={() => setSelectedCulture(culture.id === selectedCulture ? null : culture.id)}
+              >
                 {culture.image && (
                   <div
                     className="h-48 bg-cover bg-center"
@@ -192,10 +206,46 @@ const Index = () => {
                       أمثلة: {culture.examples}
                     </p>
                   )}
+                  {culture.id === 'rai' && (
+                    <Button className="w-full mt-4" variant="outline">
+                      <Icon name="Play" size={16} className="ml-2" />
+                      مشاهدة الفيديوهات
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          {selectedCulture === 'rai' && (
+            <Card className="animate-scale-in bg-card border-primary/50">
+              <CardHeader>
+                <CardTitle className="text-2xl">فيديوهات موسيقى الراي</CardTitle>
+                <CardDescription>استمع إلى أشهر نجوم الراي الجزائري</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {raiVideos.map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h3 className="font-semibold text-lg">{video.title}</h3>
+                      <div className="aspect-video">
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          src={video.url}
+                          title={video.title}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="rounded-lg"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </section>
 
